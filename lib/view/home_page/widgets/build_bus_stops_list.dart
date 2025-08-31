@@ -19,12 +19,15 @@ class BuildBusStopsList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (stopsList.isNotEmpty)
-          Text(
-            listTitle,
-            style: commonTextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.bold,
-              fontFamily: AppAssets.poppins,
+          Padding(
+            padding: EdgeInsets.only(left: 16.w),
+            child: Text(
+              listTitle,
+              style: commonTextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                fontFamily: AppAssets.poppins,
+              ),
             ),
           ),
         ListView.builder(

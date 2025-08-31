@@ -10,6 +10,7 @@ AppBar commonAppBar({
   void Function()? onTap,
 }) {
   return AppBar(
+    backgroundColor: Colors.white,
     leading: AppLogoWidget(
       width: width ?? 40,
       height: height ?? 40,

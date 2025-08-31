@@ -19,12 +19,12 @@ class StopListTile extends StatelessWidget {
         ),
       ),
       title: Text(
-        stop.stopName ?? '',
-        style: commonTextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600, ),
+        stop.stopName?.toUpperCase() ?? '',
+        style: commonTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, ),
       ),
       subtitle: Text(
         'Tap to see details',
-        style: commonTextStyle(fontSize: 14.sp, color: Colors.grey[600]),
+        style: commonTextStyle(fontSize: 12.sp, color: Colors.grey[600]),
       ),
       trailing: Icon(
         Icons.arrow_forward_ios,
