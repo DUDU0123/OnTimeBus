@@ -84,11 +84,11 @@ class StopDetailBody extends StatelessWidget {
                 padding: EdgeInsets.all(16.r),
                 child: Text(
                   '''${stop.stopName ?? 'This stop'} is conveniently located and accessible for commuters.
-        It lies at latitude ${stop.latitude?.toStringAsFixed(5) ?? 'N/A'} and longitude ${stop.longitude?.toStringAsFixed(5) ?? 'N/A'}.
-        The next bus is expected to arrive in ${StopDataFunctions.getEta(timedifference: stop.timedifference ?? 0)}.
-        
-        Facilities around the stop may include seating, shelters, and nearby shops for commuter convenience.
-        Stay updated with live ETAs to plan your journey efficiently.''',
+It lies at latitude ${stop.latitude?.toStringAsFixed(5) ?? 'N/A'} and longitude ${stop.longitude?.toStringAsFixed(5) ?? 'N/A'}.
+The next bus is expected to arrive in ${StopDataFunctions.getEta(timedifference: stop.timedifference ?? 0)}.
+
+Facilities around the stop may include seating, shelters, and nearby shops for commuter convenience.
+Stay updated with live ETAs to plan your journey efficiently.''',
                   // style: TextStyle(
                   //   fontSize: 16.sp,
                   //   height: 1.5,
