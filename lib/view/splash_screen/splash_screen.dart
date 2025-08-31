@@ -1,8 +1,29 @@
 import 'package:evide_bus_stop_app/app_utils/app_common_imports.dart';
-import 'package:evide_bus_stop_app/app_utils/app_assets.dart';
+import 'package:evide_bus_stop_app/components/app_logo_widget.dart';
+import 'package:evide_bus_stop_app/view/home_page/home_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 3), () {
+      AppKeys.navigatorKey?.currentState?.pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) {
+            return HomeScreen();
+          },
+        ),
+        (route) => false,
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,25 +32,12 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 150,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.r),
-                child: Image.asset(AppAssets.logo),
-              ),
-            ),
+            AppLogoWidget(),
             TweenAnimationBuilder<double>(
               tween: Tween(begin: 0.0, end: 1.0),
               duration: const Duration(milliseconds: 1500),
               builder: (context, value, child) {
-                return Opacity(
-                  opacity: value,
-                  child: child,
-                );
+                return Opacity(opacity: value, child: child);
               },
               child: Text(
                 "OnTimeBus",

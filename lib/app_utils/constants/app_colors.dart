@@ -6,11 +6,11 @@ class AppColors {
   static Color kGreen = Colors.green;
   static Color kGrey = Colors.grey;
   static Color kYellow = Colors.yellow;
-  static Color kOrange = Colors.orange;
+  static Color kOrange = Colors.orangeAccent;
   static Color kPurple = Colors.purple;
-  static Color kPrimaryAppColor = const Color.fromARGB(255, 149, 68, 255);
+  static Color kPrimaryAppColor = Colors.blueAccent;
   static Color kTransparent = Colors.transparent;
-  static Color kRed = Colors.red;
+  static Color kRed = Colors.redAccent;
   static Color kShadowGreen = const Color(0xFFA2FF00);
   static Color kAppLightGreen = const Color(0xFF00FF11);
   static Color kGreenButtonGradientOne = const Color(0xFF34FF60);

@@ -11,7 +11,7 @@ class RootWidgetPage extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           navigatorKey: AppKeys.navigatorKey,
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
