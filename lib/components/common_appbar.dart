@@ -18,7 +18,7 @@ AppBar commonAppBar({
     ),
     title: Text(
       title ?? 'OnTimeBus',
-      style: commonTextStyle(fontSize: fontSize),
+      style: commonTextStyle(fontSize: fontSize, fontFamily: AppAssets.russoOne),
     ),
     centerTitle: false,
   );
