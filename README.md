@@ -54,7 +54,6 @@ Home Page: Displays a scrollable list of bus stops.
 
 Stop Detail Page: Tap on any bus stop to see its detailed information including ETA, latitude, longitude, and stop name.
 
-Architecture
 State Management: GetX
 
 Architecture: MVP (Model-View-Presenter)
