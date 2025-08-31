@@ -4,29 +4,52 @@ import 'package:evide_bus_stop_app/view/home_page/widgets/build_bus_stops_list.d
 import 'package:evide_bus_stop_app/components/common_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final StopsPresenter stopsPresenter = Get.find<StopsPresenter>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: commonAppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BuildBusStopsList(
-              listTitle: "Tirur To Kuttippuram",
-              stopsList: Get.find<StopsPresenter>().tirurToKuttiPuramStopsList,
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(16.w),
+            child: TextField(
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search),
+                hintText: "Search stops...",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+              ),
+              onChanged: (value) {
+                stopsPresenter.filterStops(value);
+              },
             ),
-            BuildBusStopsList(
-              listTitle: "Kottakal To Tirur",
-              stopsList: Get.find<StopsPresenter>().kottakalToTirurStopsList,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  BuildBusStopsList(
+                    listTitle: "Tirur To Kuttippuram",
+                    stopsList: stopsPresenter.filteredTirurToKuttiPuram,
+                  ),
+                  BuildBusStopsList(
+                    listTitle: "Kottakal To Tirur",
+                    stopsList: stopsPresenter.filteredKottakalToTirur,
+                  ),
+                  BuildBusStopsList(
+                    listTitle: "Tirur To Kottakal",
+                    stopsList: stopsPresenter.filteredTirurToKottakal,
+                  ),
+                ],
+              ),
             ),
-            BuildBusStopsList(
-              listTitle: "Tirur To Kottakal",
-              stopsList: Get.find<StopsPresenter>().tirurToKottakalStopsList,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

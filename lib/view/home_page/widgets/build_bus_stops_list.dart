@@ -18,61 +18,68 @@ class BuildBusStopsList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (stopsList.isNotEmpty)
-          Padding(
-            padding: EdgeInsets.only(left: 16.w),
-            child: Text(
-              listTitle,
-              style: commonTextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold,
-                fontFamily: AppAssets.poppins,
-              ),
-            ),
-          ),
-        ListView.builder(
-          padding: EdgeInsets.only(
-            top: 0.h,
-            bottom: 10.h,
-            left: 10.w,
-            right: 10.w,
-          ),
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: stopsList.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                AppKeys.navigatorKey?.currentState?.push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return StopDetailScreen(
-                        stop: stopsList[index],
-                        stopTitle: listTitle,
-                      );
-                    },
-                  ),
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(vertical: 6.h),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.kGrey.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 6,
-                      offset: Offset(0, 3), // shadow position
-                    ),
-                  ],
+        Obx(() {
+          if (stopsList.isNotEmpty) {
+            return Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: Text(
+                listTitle,
+                style: commonTextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: AppAssets.poppins,
                 ),
-                child: StopListTile(stop: stopsList[index], index: index),
               ),
             );
-          },
-        ),
+          } else {
+            return SizedBox.shrink();
+          }
+        }),
+        Obx(() {
+          return ListView.builder(
+            padding: EdgeInsets.only(
+              top: 0.h,
+              bottom: 10.h,
+              left: 10.w,
+              right: 10.w,
+            ),
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: stopsList.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  AppKeys.navigatorKey?.currentState?.push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return StopDetailScreen(
+                          stop: stopsList[index],
+                          stopTitle: listTitle,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 6.h),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.kGrey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 6,
+                        offset: Offset(0, 3), // shadow position
+                      ),
+                    ],
+                  ),
+                  child: StopListTile(stop: stopsList[index], index: index),
+                ),
+              );
+            },
+          );
+        }),
       ],
     );
   }
