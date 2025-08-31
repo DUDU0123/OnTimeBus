@@ -1,4 +1,5 @@
 import 'package:evide_bus_stop_app/app_utils/app_common_imports.dart';
+import 'package:evide_bus_stop_app/view/splash_screen/splash_screen.dart';
 
 class RootWidgetPage extends StatelessWidget {
   const RootWidgetPage({super.key});
@@ -13,7 +14,7 @@ class RootWidgetPage extends StatelessWidget {
         return MaterialApp(
           navigatorKey: AppKeys.navigatorKey,
           debugShowCheckedModeBanner: false,
-          home: Scaffold(body: Center(child: Text("Hello World"))),
+          home: SplashScreen(),
         );
       },
     );
